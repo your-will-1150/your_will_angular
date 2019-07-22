@@ -1,1 +1,21 @@
-<p>sign-up works!</p>
+<h1>Register</h1>
+<h4>Create a new account</h4>
+<hr>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="_signUpForm">
+    <div>
+        <div>
+            <input placeholder="Username" formControlName="userName" type="text" required/>
+        </div>
+        <div>
+            <input placeholder="Email" formControlName="email" type="email" required/>
+        </div>
+        <div>
+            <input placeholder="Password" formControlName="password" type="password" required/>
+        </div>
+        <div>
+            <input placeholder="Confirm Password" formControlName="confirmPassword" type="password" required/>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>

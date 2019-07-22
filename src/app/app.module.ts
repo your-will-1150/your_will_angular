@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,6 +16,11 @@ import { ProfileOtherComponent } from './components/profile-other/profile-other.
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
+
+const routes = [
+  { path: '**', component: HomeComponent },
+  { path: 'signUp', component: SignUpComponent },
+]
 
 @NgModule({
   declarations: [
@@ -27,10 +35,13 @@ import { FooterComponent } from './components/footer/footer.component';
     ProfileOtherComponent,
     ProfileComponent,
     AddItemComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
