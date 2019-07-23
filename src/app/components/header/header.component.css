@@ -1,0 +1,16 @@
+header {
+    width: 100%;
+}
+
+.row {
+    margin: 0px;
+}
+
+.column {
+    width: 50%;
+    text-align: right;
+}
+
+#logo {
+    text-align: left;   
+}
