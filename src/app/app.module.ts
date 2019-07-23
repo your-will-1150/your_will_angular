@@ -18,8 +18,9 @@ import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 const routes = [
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'cart', component: CartComponent },
   { path: '**', component: HomeComponent },
-  { path: 'signUp', component: SignUpComponent },
 ]
 
 @NgModule({
