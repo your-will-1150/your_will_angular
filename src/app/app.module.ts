@@ -18,8 +18,15 @@ import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 const routes = [
+  { path: 'add-item', component: AddItemComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'profile-other', component: ProfileOtherComponent },
+  { path: 'product-detail', component: ProductDetailComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'order', component: OrderConfirmComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'sign-up', component: SignUpComponent },
   { path: '**', component: HomeComponent },
-  { path: 'signUp', component: SignUpComponent },
 ]
 
 @NgModule({
