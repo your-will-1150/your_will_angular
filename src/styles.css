@@ -11,6 +11,6 @@
     transform: translateY(-50%);
 }
 
-.con {
-    position: relative;
+.row {
+    margin: 0px;
 }
