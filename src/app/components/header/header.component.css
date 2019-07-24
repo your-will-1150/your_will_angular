@@ -1,0 +1,54 @@
+header {
+    height: 92px;
+    width: 100%;
+    background-color: lightgrey;
+    padding: 15px;
+}
+
+.column {
+    width: 50%;
+    text-align: right;
+}
+
+.logo {
+    font-size: 41px;
+    text-align: left;
+}
+
+.logo a {
+    color: white;
+    transition-duration: 1.9s;
+}
+
+.logo a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+.navbtn {
+    color: black;
+    background-color: darkgrey;
+}
+
+.dropdown:hover .droplinks {
+    display: block;
+}
+
+.droplinks {
+    display: none;
+    background-color: white;
+    z-index: 1;
+}
+
+.droplinks a {
+    float: none;
+}
+
+.droplinks a:hover {
+    background-color: grey;    
+}
