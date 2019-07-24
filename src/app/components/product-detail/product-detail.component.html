@@ -1,1 +1,67 @@
-<p>product-detail works!</p>
+<form [formGroup]="_productdetailForm" (ngSubmit)="onSubmit()"> 
+  <section class="customer-name">
+    <h1>Username</h1>
+    <input type="text" placeholder="Will pre-populate from profile" formControlName="sellername">
+  </section>
+  <span layout="row"><hr flex/>All Product Detail below is Mandatory<hr flex/></span>
+  <section class="productdesc">
+    <label>Product Name</label> 
+    <input matInput type="text" formControlName="productname" require>
+    <label>Product Description</label>
+    <textarea formControlName="productdesc"></textarea>
+    <h2>Selling $USD</h2>
+    <input type="float" formControlName="productvalue">
+  </section>
+  <span layout="row"><hr flex/><hr flex/></span>
+  <section class="products">
+      <h3>Please select one of the following for the Product(s) you are Selling</h3>
+        <h4>Who</h4>
+        <ul>
+          <li>
+            <input id="whomale" type="radio" value="Male" formControlName="who">
+            <label for="whomale">Male</label>
+          </li>
+          <li>
+            <input id="whofemale" type="radio" value="Female" formControlName="who">
+            <label for="Whofemale">Female</label>
+          </li>
+          <li>
+            <input id="whochild" type="radio" value="Child" formControlName="who">
+            <label for="whochild">Child</label>
+          </li>
+        </ul>
+        
+  </section>
+      <h3>Please select the best category for the type of Product(s) you are Selling</h3>
+      <section>
+        <h4>What</h4>
+        <ul>
+          <li>
+            <input id="whattop" type="radio" value="Top" formControlName="what">
+            <label for="Whattop">Top</label>
+          </li>
+          <li>
+            <input id="whatbottom" type="radio" value="Bottom" formControlName="what">
+            <label for="Whattop">Bottom</label>
+          </li>
+          <li>
+            <input id="whatshoes" type="radio" value="Shoes" formControlName="what">
+            <label for="Whatshoes">Shoes</label>
+          </li>
+          <li>
+            <input id="whatother" type="radio" value="Other" formControlName="what">
+            <label for="Whatother">Other</label>
+          </li>
+        </ul>
+        
+      </section>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Submit</button>
+</form>
+
+
+<!-- Form Data -->
+<section>
+  <hr>
+  <h1>Developers area</h1>
+  <pre>{{ _productdetailForm.value | json }}</pre>
+</section>
