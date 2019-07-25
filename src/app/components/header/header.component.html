@@ -1,12 +1,12 @@
 <header>
     <div class="row">
-        <div class="column" id="logo">
+        <div class="column logo">
             <a href=".">Your Will</a>
         </div>
         <div class="column">
             <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
                 <span>
-                    <input placeholder="Username" formControlName="userName" type="text" required/>
+                    <input placeholder="Email" formControlName="email" type="email" required/>
                     <input placeholder="Password" formControlName="password" type="password" required/>
                     <button class="btn btn-primary" type="submit">Log In</button>
                 </span>
@@ -14,6 +14,16 @@
             <span>New user?
                 <a href="./sign-up">Sign up here</a>
             </span>
+            <div class="dropdown">
+                <button class="navbtn">Nav</button>
+                <div class="droplinks">
+                    <a href=".">Home</a>
+                    <br>
+                    <a href="./products">Products</a>
+                    <br>
+                    <a href="./profile">Your Profile</a>
+                </div>
+            </div>
         </div>
     </div>
 </header>
