@@ -3,7 +3,7 @@ import { RegisterUser } from '../models/RegisterUser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginUser } from '../models/LoginUser';
 import { Token } from '../models/Token';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { User } from '../models/User';
 import { Router } from '@angular/router';
 
@@ -33,9 +33,10 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear();
+    console.log(localStorage.getItem('auth_token'))
     this.isLoggedIn.next(false);
-    return this._http.post(`${Api_Url}/auth/logout`, { headers: this.setHeaders() })
+    localStorage.clear();
+    return this._http.post(`${Api_Url}/auth/logout`, { headers: this.setHeaders() }).subscribe();
   }
 
   getMe() {

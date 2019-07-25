@@ -10,12 +10,31 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
 
   private _logInForm: FormGroup;
+
+  private _username: string;
+  private _subscription;
+  private _isLoggedIn;
   
   constructor(private _form: FormBuilder, private _service: AuthService) {
-    this.createForm()
+    this.createForm();
+    this._subscription = this._service.userInfo.subscribe( (value) => {
+      this._username = value.username;
+    });
+    this._isLoggedIn = this._service.isLoggedIn.subscribe( (value) => {
+      this._isLoggedIn = value;
+    });
+  }
+
+  logout() {
+    this._service.logout();
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
+    this._isLoggedIn.unsubscribe();
   }
 
   createForm() {
