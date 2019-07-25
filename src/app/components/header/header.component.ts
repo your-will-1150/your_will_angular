@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   private _logInForm: FormGroup;
   
-  constructor(private _form: FormBuilder) {
+  constructor(private _form: FormBuilder, private _service: AuthService) {
     this.createForm()
   }
 
@@ -20,13 +20,14 @@ export class HeaderComponent implements OnInit {
 
   createForm() {
     this._logInForm = this._form.group({
-      userName: new FormControl,
+      email: new FormControl,
       password: new FormControl,
     })
   }
 
   onSubmit() {
     console.log(this._logInForm.value);
+    this._service.login(this._logInForm.value);
   }
   
 }

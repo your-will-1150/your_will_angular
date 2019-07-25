@@ -6,7 +6,7 @@
         <div class="column">
             <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
                 <span>
-                    <input placeholder="Username" formControlName="userName" type="text" required/>
+                    <input placeholder="Email" formControlName="email" type="email" required/>
                     <input placeholder="Password" formControlName="password" type="password" required/>
                     <button class="btn btn-primary" type="submit">Log In</button>
                 </span>
