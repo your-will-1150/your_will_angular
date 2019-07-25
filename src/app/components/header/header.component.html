@@ -1,27 +1,31 @@
 <header>
     <div class="row">
         <div class="column logo">
-            <a href=".">Your Will</a>
+            <a href="/">Your Will</a>
         </div>
         <div class="column">
-            <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
-                <span>
-                    <input placeholder="Username" formControlName="userName" type="text" required/>
-                    <input placeholder="Password" formControlName="password" type="password" required/>
-                    <button class="btn btn-primary" type="submit">Log In</button>
+            <div *ngIf="!_isLoggedIn; elseBlock">
+                <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
+                    <span>
+                        <input placeholder="Email" formControlName="email" type="email" required/>
+                        <input placeholder="Password" formControlName="password" type="password" required/>
+                        <button class="btn btn-primary" type="submit">Log In</button>
+                    </span>
+                </form>
+                <span>New user?
+                    <a href="/sign-up">Sign up here</a>
                 </span>
-            </form>
-            <span>New user?
-                <a href="./sign-up">Sign up here</a>
-            </span>
+            </div>
             <div class="dropdown">
                 <button class="navbtn">Nav</button>
                 <div class="droplinks">
-                    <a href=".">Home</a>
+                    <button routerLink="/">Home</button>
                     <br>
-                    <a href="./products">Products</a>
+                    <button routerLink="/products">Products</button>
                     <br>
-                    <a href="./profile">Your Profile</a>
+                    <button routerLink="/profile">Your Profile</button>
+                    <br>
+                    <button #elseBlock (click)="logout()">Logout</button>
                 </div>
             </div>
         </div>
