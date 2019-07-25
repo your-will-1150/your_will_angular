@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this._logInForm.value);
+    console.log('Login Submitted');
     this._service.login(this._logInForm.value);
   }
   
