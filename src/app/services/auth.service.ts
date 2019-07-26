@@ -25,22 +25,24 @@ export class AuthService {
 
   login(loginUserData: LoginUser) {
     return this._http.post(`${Api_Url}/auth/login`, loginUserData).subscribe
-    ( (token: Token) => {
-      localStorage.setItem('auth_token', token.Authorization);
-      this._router.navigate(['/']);
-      this.isLoggedIn.next(true);
-    });
+      ((token: Token) => {
+        localStorage.setItem('auth_token', token.Authorization);
+        this.getMe();
+        this._router.navigate(['/']);
+        this.isLoggedIn.next(true);
+      });
   }
 
   logout() {
-    console.log(localStorage.getItem('auth_token'))
+    // console.log(localStorage.getItem('auth_token'))
     this.isLoggedIn.next(false);
+    // console.log(this.setHeaders());
+    // this._http.post(`${Api_Url}/auth/logout`, { headers: this.setHeaders() }).subscribe();
     localStorage.clear();
-    return this._http.post(`${Api_Url}/auth/logout`, { headers: this.setHeaders() }).subscribe();
   }
 
   getMe() {
-    return this._http.get(`${Api_Url}/users/me`, { headers: this.setHeaders() }).subscribe( (user: User) => { this.userInfo.next(user); });
+    return this._http.get(`${Api_Url}/user/me`, { headers: this.setHeaders() }).subscribe((user: User) => { this.userInfo.next(user); });
   }
 
   private setHeaders(): HttpHeaders {
