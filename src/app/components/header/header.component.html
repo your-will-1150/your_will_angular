@@ -1,10 +1,10 @@
 <header>
     <div class="row">
         <div class="column logo">
-            <a href="/">Your Will</a>
+            <a href="/">Your Will {{ _username }}</a>
         </div>
         <div class="column">
-            <div *ngIf="!_isLoggedIn; elseBlock">
+            <div *ngIf="!_isLoggedIn; else elseBlock">
                 <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
                     <span>
                         <input placeholder="Email" formControlName="email" type="email" required/>
@@ -25,7 +25,9 @@
                     <br>
                     <button routerLink="/profile">Your Profile</button>
                     <br>
-                    <button #elseBlock (click)="logout()">Logout</button>
+                    <ng-template #elseBlock>
+                        <button (click)="logout()">Logout</button>
+                    </ng-template>
                 </div>
             </div>
         </div>

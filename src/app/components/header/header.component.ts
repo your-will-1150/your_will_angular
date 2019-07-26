@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
     this._isLoggedIn = this._service.isLoggedIn.subscribe( (value) => {
       this._isLoggedIn = value;
     });
+    this._service.isLoggedIn.next(false)
   }
 
   logout() {
