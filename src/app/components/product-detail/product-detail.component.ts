@@ -5,8 +5,8 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
-})
+  styleUrls: ['./product-detail.component.css'],
+  })
 export class ProductDetailComponent implements OnInit {
 
    
@@ -14,8 +14,9 @@ export class ProductDetailComponent implements OnInit {
 
 constructor(private fb: FormBuilder) {
   this.createSellerForm();
-}
+  
 
+}
  
 
   ngOnInit() {
@@ -30,6 +31,7 @@ createSellerForm() {
     productname: new FormControl,
     productdesc: new FormControl,
     productvalue: new FormControl
+    
   });
 
 }
@@ -38,6 +40,8 @@ onSubmit() {
   if (this._productdetailForm.valid) {
     console.log("Form Submitted!");
   }
+
+
   
 }
 
