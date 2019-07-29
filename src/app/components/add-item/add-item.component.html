@@ -1,1 +1,74 @@
-<p>add-item works!</p>
+<form action="/action_page.php" [formGroup]="_productdetailForm" (ngSubmit)="onSubmit()"> 
+  <section class="customer-name">
+    <h5>Username</h5>
+    <input type="text" placeholder="Will pre-populate from profile" formControlName="sellername">
+  </section>
+  <div class="container">
+      <span layout="row"><hr flex/><em>Fill </em><hr flex/></span>
+      <section class="productdesc">
+        <h2>Title</h2> 
+        <input type="text" mat-form-field formControlName="productname"  required>
+        <br>
+        <br>
+        <br>
+        <h2>Product Description</h2>
+        <textarea rows="4" cols="75" formControlName="productdesc"placeholder="Use words people would search for when looking for your item." required></textarea>
+        <h2>Selling $USD</h2>
+        <input type="float" mat-form-field formControlName="productvalue" required>
+      </section>
+      <span layout="row"><hr flex/><hr flex/></span>
+  </div>
+
+  <div class="form-check">
+        <h3>Please select the best category for the type of Product(s) you are Selling</h3>
+      <section>
+        <h4>Who</h4>
+        <ul>
+          <li>
+            <input id="whomale" input type="radio" class="form-check-input"  value="Male" formControlName="who">
+            <label for="Whomale">Male</label>
+          </li>
+          <li>
+            <input id="whofemale" input type="radio" class="form-check-input"  value="Female" formControlName="who">
+            <label for="whofemale">Female</label>
+          </li>
+          <li>
+            <input id="whochild" input type="radio" class="form-check-input" value="Child" formControlName="who">
+            <label for="whochild">Child</label>
+          </li>
+        </ul>
+        
+      <h3>Please select the best category for the type of Product(s) you are Selling</h3>
+      <section>
+        <h4>What</h4>
+        <ul>
+          <li>
+            <input id="whattop"  input type="radio" class="form-check-input" value="Top" formControlName="what">
+            <label for="Whattop">Top</label>
+          </li>
+          <li>
+            <input id="whatbottom" input type="radio" class="form-check-input" value="Bottom" formControlName="what">
+            <label for="Whattop">Bottom</label>
+          </li>
+          <li>
+            <input id="whatshoes" input type="radio" class="form-check-input" value="Shoes" formControlName="what">
+            <label for="Whatshoes">Shoes</label>
+          </li>
+          <li>
+            <input id="whatother" input type="radio" class="form-check-input" value="Other" formControlName="what">
+            <label for="Whatother">Other</label>
+          </li>
+        </ul>
+      </section>
+
+          <button mat-raised-button class="nav-btn" color="primary" type="submit">Submit</button>
+          <button mat-raised-button class="nav-btn" color="primary" type="submit" ng-click="reset">Reset</button>
+
+
+
+<!-- Form Data -->
+<section>
+  <hr>
+  <h1>Developers area</h1>
+  <pre>{{ _productdetailForm.value | json }}</pre>
+</section> 
