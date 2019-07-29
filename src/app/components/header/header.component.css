@@ -33,6 +33,7 @@ header {
 .navbtn {
     color: black;
     background-color: darkgrey;
+    width: 100px;
 }
 
 .dropdown:hover .droplinks {
@@ -45,10 +46,11 @@ header {
     z-index: 1;
 }
 
-.droplinks a {
-    float: none;
+.droplinks button {
+    width: 100px;
 }
 
-.droplinks a:hover {
-    background-color: grey;    
+.welcome {
+    float: right;
+    font-size: 20px;
 }
