@@ -38,7 +38,7 @@ export class AddItemComponent implements OnInit {
   
   onSubmit() {
     if (this._productdetailForm.valid) {
-      console.log("Form Submitted!");
+      console.log(this._productdetailForm.value);
     }
   
 
