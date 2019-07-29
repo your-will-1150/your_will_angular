@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { AdminComponent } from './components/admin/admin.component';
 
 const routes = [
+  { path: 'admin', component: AdminComponent },
   { path: 'add-item', component: AddItemComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile-other', component: ProfileOtherComponent },

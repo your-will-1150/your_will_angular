@@ -1,7 +1,8 @@
 <header>
     <div class="row">
         <div class="column logo">
-            <a href="/">Your Will {{ _username }}</a>
+            <a href="/">Your Will</a>
+            <p class="welcome" *ngIf="_isLoggedIn">Welcome {{ _username }}!</p>
         </div>
         <div class="column">
             <div *ngIf="!_isLoggedIn; else elseBlock">
@@ -14,7 +15,6 @@
                         <button class="btn btn-primary" type="submit">Log In</button>
                     </span>
                 </form>
-                <span>{{_username}}</span> 
                 <span>New user?
                     <a href="/sign-up">Sign up here</a>
                 </span>
