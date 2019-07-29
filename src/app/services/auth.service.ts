@@ -17,8 +17,19 @@ export class AuthService {
   userInfo = new Subject<User>();
   isLoggedIn = new Subject<boolean>();
 
-  constructor(private _http: HttpClient, private _router: Router) { }
+  constructor(private _http: HttpClient, private _router: Router) {
+  }
 
+  public checkAuthentication() :void {
+    if(localStorage.getItem('auth_token')) {
+      console.log('Authenticated');
+        this.getMe();
+        this.isLoggedIn.next(true);
+    } else {
+      this.isLoggedIn.next(false);
+    }
+  }
+   
   register(regUserData: RegisterUser) {
     return this._http.post(`${Api_Url}/user/all`, regUserData);
   }
@@ -27,7 +38,6 @@ export class AuthService {
     return this._http.post(`${Api_Url}/auth/login`, loginUserData).subscribe
       ((token: Token) => {
         localStorage.setItem('auth_token', token.Authorization);
-        this.getMe();
         this._router.navigate(['/']);
         this.isLoggedIn.next(true);
       });
@@ -43,6 +53,10 @@ export class AuthService {
 
   getMe() {
     return this._http.get(`${Api_Url}/user/me`, { headers: this.setHeaders() }).subscribe((user: User) => { this.userInfo.next(user); });
+  }
+
+  deleteMe() {
+    return this._http.delete(`${Api_Url}/user/me`, { headers: this.setHeaders() }).subscribe((user: User) => { this.userInfo.next(user); });
   }
 
   private setHeaders(): HttpHeaders {
