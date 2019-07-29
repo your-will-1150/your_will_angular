@@ -8,11 +8,13 @@
                 <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
                     <span>
                         <input placeholder="Email" formControlName="email" type="email" required/>
+                        <!-- test -->
                         <input placeholder="Password" formControlName="password" type="password" required/>
+                        <!-- Test1! -->
                         <button class="btn btn-primary" type="submit">Log In</button>
                     </span>
                 </form>
-                <span>{{_username}}</span>
+                <span>{{_username}}</span> 
                 <span>New user?
                     <a href="/sign-up">Sign up here</a>
                 </span>

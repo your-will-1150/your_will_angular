@@ -18,6 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthService } from './services/auth.service';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes = [
   { path: 'add-item', component: AddItemComponent },
@@ -45,6 +46,7 @@ const routes = [
     ProfileComponent,
     AddItemComponent,
     FooterComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
