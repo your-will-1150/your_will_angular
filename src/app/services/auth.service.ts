@@ -55,10 +55,6 @@ export class AuthService {
     return this._http.get(`${Api_Url}/user/me`, { headers: this.setHeaders() }).subscribe((user: User) => { this.userInfo.next(user); });
   }
 
-  deleteMe() {
-    return this._http.delete(`${Api_Url}/user/me`, { headers: this.setHeaders() }).subscribe((user: User) => { this.userInfo.next(user); });
-  }
-
   private setHeaders(): HttpHeaders {
     return new HttpHeaders().set('Authorization', localStorage.getItem('auth_token'));
   }
