@@ -2,13 +2,16 @@
     <div class="row">
         <div class="column logo">
             <a href="/">Your Will</a>
+            <p class="welcome" *ngIf="_isLoggedIn">Welcome {{ _username }}!</p>
         </div>
         <div class="column">
-            <div *ngIf="!_isLoggedIn; elseBlock">
+            <div *ngIf="!_isLoggedIn; else elseBlock">
                 <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
                     <span>
                         <input placeholder="Email" formControlName="email" type="email" required/>
+                        <!-- test -->
                         <input placeholder="Password" formControlName="password" type="password" required/>
+                        <!-- Test1! -->
                         <button class="btn btn-primary" type="submit">Log In</button>
                     </span>
                 </form>
@@ -25,7 +28,9 @@
                     <br>
                     <button routerLink="/profile">Your Profile</button>
                     <br>
-                    <button #elseBlock (click)="logout()">Logout</button>
+                    <ng-template #elseBlock>
+                        <button (click)="logout()">Logout</button>
+                    </ng-template>
                 </div>
             </div>
         </div>

@@ -1,3 +1,9 @@
+input {
+    border-style: solid;
+    border-color: #00000021;
+    border-width: 1px;
+}
+
 .center {
     position: absolute;
     top: 50%;
@@ -13,4 +19,9 @@
 
 .row {
     margin: 0px;
+}
+
+.card {
+    text-align: center;
+    width: fit-content;
 }
