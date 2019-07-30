@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-profile',
@@ -14,33 +15,49 @@ export class ProfileComponent implements OnInit {
   private _username: string;
   private _isLoggedIn: boolean;
   private _isLoggedInSubscription;
-  private _updateForm: FormGroup;
-  
+
+  user: User;
+  updateForm: FormGroup;
 
   constructor(private _form: FormBuilder, private _service: AuthService, private _userService: UserService) {
     this._subscription = this._service.userInfo.subscribe( (value) => {
-      this._username = value.username;
+      this.user = value;
+      this.createForm();
     });
     this._isLoggedInSubscription = this._service.isLoggedIn.subscribe( (value) => {
       this._isLoggedIn = value;
     });
     this._service.checkAuthentication();
-    this.createForm();
+    this._service.getMe()
   }
 
   ngOnInit() {
+    // this._service.getMe()
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
+    this._isLoggedInSubscription.unsubscribe();
   }
 
   createForm() {
-    this._updateForm = this._form.group({
-      email: new FormControl,
-      username: new FormControl,
+    this.updateForm = this._form.group({
+      username: new FormControl(this.user.username),
+      email: new FormControl(this.user.email),
     })
   }
 
+  createPasswordForm() {
+    this.updateForm = this._form.group({
+      password: new FormControl,
+      confirmPassword: new FormControl,
+    })
+  }
+
+  // Add refresh page or navigate away to see changes on the profile
   onSubmit() {
-    console.log(this._updateForm.value);
-    this._userService.updateMe(this._updateForm.value).subscribe( () => console.log('update success!'))
+    console.log(this.updateForm.value);
+    this._userService.updateMe(this.updateForm.value).subscribe( () => console.log('update success!'))
   }
 
 }
