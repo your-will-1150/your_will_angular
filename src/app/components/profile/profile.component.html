@@ -37,8 +37,22 @@
         </div>
 </div>     -->
 
-<div class="container">
-
+<div class="card center">
+    <div class="card-header">
+        <h4>Update Account Info</h4>
+    </div>
+    <form class="card-body" (ngSubmit)="onSubmit()" [formGroup]="_updateForm">
+        <div>
+            <div>
+                <input placeholder="Username" formControlName="username" type="text" required/>
+            </div>
+            <div>
+                <input placeholder="Email" formControlName="email" type="email" required/>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
 </div>
+
     
     

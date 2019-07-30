@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
   private _updateForm: FormGroup;
   
 
-  constructor(private _form: FormBuilder, private _service: AuthService) {
+  constructor(private _form: FormBuilder, private _service: AuthService, private _userService: UserService) {
     this._subscription = this._service.userInfo.subscribe( (value) => {
       this._username = value.username;
     });
@@ -24,6 +25,7 @@ export class ProfileComponent implements OnInit {
       this._isLoggedIn = value;
     });
     this._service.checkAuthentication();
+    this.createForm();
   }
 
   ngOnInit() {
@@ -35,4 +37,10 @@ export class ProfileComponent implements OnInit {
       username: new FormControl,
     })
   }
+
+  onSubmit() {
+    console.log(this._updateForm.value);
+    this._userService.updateMe(this._updateForm.value).subscribe( () => console.log('update success!'))
+  }
+
 }
