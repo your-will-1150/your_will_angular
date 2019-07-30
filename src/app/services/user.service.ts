@@ -19,9 +19,9 @@ export class UserService {
     return this._http.put<User>(`${Api_Url}/user/me`, username, { headers: this.getHeaders() });
   }
 
-  // deleteMe(username: User) {
-  //   return this._http.delete<User>(`${Api_Url}/user/me`, username, { headers: this.getHeaders() });
-  // }
+  deleteMe() {
+    return this._http.delete<User>(`${Api_Url}/user/me`, { headers: this.getHeaders() });
+  }
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders().set('Authorization', localStorage.getItem('auth_token'));

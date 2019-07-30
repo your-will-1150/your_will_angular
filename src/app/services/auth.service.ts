@@ -38,6 +38,7 @@ export class AuthService {
     return this._http.post(`${Api_Url}/auth/login`, loginUserData).subscribe
       ((token: Token) => {
         localStorage.setItem('auth_token', token.Authorization);
+        this.getMe();
         this._router.navigate(['/']);
         this.isLoggedIn.next(true);
       });
