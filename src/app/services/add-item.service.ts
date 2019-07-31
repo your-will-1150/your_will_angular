@@ -26,13 +26,13 @@ getProducts () {
 }
 
 getProduct(id: number){
-  return this.http.get<Product>(Api_Url)
+  return this._http.get<Product>(`${Api_Url}/item/`)
   
 }
 
-addProduct (AddItem):  {
-  return this.http.post<AddItem>(`${Api_Url, AddItem, httpOptions)
-  ((AddItem: AddItem) => console.log(`added AddItem w/ id=${AddItem.id}`)),
+addProduct (AddItem) {
+  return this._http.post<Product>(`${Api_Url}/item/`).subscribe
+  ((AddItem: Product) => console.log(`added AddItem w/ id=${AddItem.id}`)),
   
 }
 
