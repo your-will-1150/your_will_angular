@@ -39,9 +39,12 @@
 
 <div class="center">
     <div class="card">
-        <div class="card-header">
+        <div *ngIf="user" class="card-header">
             <h4>Update Account Info</h4>
-            <h3>{{ _username }}</h3>
+            <h3>Email: {{ user.email }}</h3>
+            <h3>Username: {{ user.username }}</h3>
+            <h3>Registered On: {{ user.registered_on }}</h3>
+            <h3>Most Recent Profile Change: {{ user.modified_at }}</h3>
         </div>
         <div *ngIf="updateForm">
             <form class="card-body" (ngSubmit)="onSubmit()" [formGroup]="updateForm">

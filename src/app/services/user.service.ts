@@ -11,9 +11,9 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  // readMe() {
-  //   return this._http.get(`${Api_Url}/user/me`, { headers: this.getHeaders() });
-  // }
+  readMe() {
+    return this._http.get(`${Api_Url}/user/me`, { headers: this.getHeaders() });
+  }
   
   updateMe(username: User) {
     return this._http.put<User>(`${Api_Url}/user/me`, username, { headers: this.getHeaders() });
