@@ -2,7 +2,9 @@
     <div class="row">
         <div class="column logo">
             <a href="/">Your Will</a>
-            <p class="welcome" *ngIf="_isLoggedIn">Welcome {{ _username }}!</p>
+            <span class="welcome" *ngIf="_isLoggedIn">Welcome
+                <a href="/profile">{{ _username }}</a>!
+            </span>
         </div>
         <div class="column">
             <div *ngIf="!_isLoggedIn; else elseBlock">
