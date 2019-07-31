@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static(__dirname + '/dist/your-will-angular'));
 
-app.length('/*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname + '/dist/your-will-angular/index.html'));
 });
 
