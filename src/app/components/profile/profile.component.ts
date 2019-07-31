@@ -30,11 +30,11 @@ export class ProfileComponent implements OnInit {
       this._isLoggedIn = value;
     });
     this._service.checkAuthentication();
-    this._service.getMe()
+    this._userService.readMe()
   }
 
   ngOnInit() {
-    // this._service.getMe()
+    this._userService.readMe();
   }
 
   ngOnDestroy() {
