@@ -2,16 +2,17 @@
     <div class="row">
         <div class="column logo">
             <a href="/">Your Will</a>
-            <p class="welcome" *ngIf="_isLoggedIn">Welcome {{ _username }}!</p>
+            <span class="welcome" *ngIf="_isLoggedIn">Welcome
+                <a href="/profile">{{ _username }}</a>!
+            </span>
         </div>
         <div class="column">
             <div *ngIf="!_isLoggedIn; else elseBlock">
                 <form (ngSubmit)="onSubmit()" [formGroup]="_logInForm">
                     <span>
                         <input placeholder="Email" formControlName="email" type="email" required/>
-                        <!-- test -->
+                        <!-- test_password = Test1! -->
                         <input placeholder="Password" formControlName="password" type="password" required/>
-                        <!-- Test1! -->
                         <button class="btn btn-primary" type="submit">Log In</button>
                     </span>
                 </form>
