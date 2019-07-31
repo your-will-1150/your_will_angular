@@ -9,11 +9,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  private _logInForm: FormGroup;
+  public _logInForm: FormGroup;
 
-  private _username: string;
+  public _username: string;
   private _subscription;
-  private _isLoggedIn: boolean;
+  public _isLoggedIn: boolean;
   private _isLoggedInSubscription;
   
   constructor(private _form: FormBuilder, private _service: AuthService) {
