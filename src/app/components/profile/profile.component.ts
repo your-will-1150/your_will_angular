@@ -18,11 +18,13 @@ export class ProfileComponent implements OnInit {
 
   user: User;
   updateForm: FormGroup;
+  updatePasswordForm: FormGroup;
 
   constructor(private _form: FormBuilder, private _service: AuthService, private _userService: UserService) {
     this._subscription = this._service.userInfo.subscribe( (value) => {
       this.user = value;
       this.createForm();
+      this.createPasswordForm();
     });
     this._isLoggedInSubscription = this._service.isLoggedIn.subscribe( (value) => {
       this._isLoggedIn = value;
@@ -48,7 +50,7 @@ export class ProfileComponent implements OnInit {
   }
 
   createPasswordForm() {
-    this.updateForm = this._form.group({
+    this.updatePasswordForm = this._form.group({
       password: new FormControl,
       confirmPassword: new FormControl,
     })
@@ -60,4 +62,12 @@ export class ProfileComponent implements OnInit {
     this._userService.updateMe(this.updateForm.value).subscribe( () => console.log('update success!'))
   }
 
+  onSubmitPassword() {
+    console.log(this.updatePasswordForm.value);
+    this._userService.updateMe(this.updatePasswordForm.value).subscribe( () => console.log('password update success!'))
+  }
+
+  onDelete() {
+    this._userService.deleteMe().subscribe( () => console.log('User Deleted!'))
+  }
 }

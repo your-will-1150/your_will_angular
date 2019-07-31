@@ -20,7 +20,7 @@ export class UserService {
   }
 
   deleteMe() {
-    return this._http.delete<User>(`${Api_Url}/user/me`, { headers: this.getHeaders() });
+    return this._http.delete(`${Api_Url}/user/me`, { headers: this.getHeaders() });
   }
 
   private getHeaders(): HttpHeaders {
