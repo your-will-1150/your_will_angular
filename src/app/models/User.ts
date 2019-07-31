@@ -4,4 +4,6 @@ export interface User {
     public_id: string;
     registered_on: Date;
     modified_at: Date;
+    password: string;
+    confirm_password: string;
 }
