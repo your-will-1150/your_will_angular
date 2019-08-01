@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/Product';
 import { AuthService } from './auth.service';
+import { RegisterUser } from '../models/RegisterUser';
+import { LoginUser } from '../models/LoginUser';
+import { Token } from '../models/Token';
+import { User } from '../models/User';
+
+import ( )
 
 const Api_Url = "http://yourwill-dev.us-east-1.elasticbeanstalk.com";
 
@@ -25,34 +31,33 @@ getProducts () {
 
 }
 
-getProduct(id: number){
-  return this._http.get<Product>(`${Api_Url}/item/`)
+getProduct() {
+  return this._http.get(`${Api_Url}/item/{item_id}`);
   
 }
 
-addProduct (AddItem) {
-  return this._http.post<Product>(`${Api_Url}/item/`).subscribe
-  ((AddItem: Product) => console.log(`added AddItem w/ id=${AddItem.id}`)),
+addProduct (id:Product) {
+  return this._http.post(`${Api_Url}/item/`, id, { headers: this.getHeaders()});
+  
   
 }
 
-updateProduct (id, AddItem): Observable<any> {
-  const url = `${Api_Url}/${id}`;
-  return this.http.put(url, AddItem, httpOptions)
-  (tap(_ => console.log(`updated AddItem id=${id}`)),
+updateProduct (id:Product) {
+  return this._http.put(`${Api_Url}/item/`, id)
   
-  );
 }
 
-deleteProduct (id): Observable<AddItem> {
+deleteProduct (id:Product ) {
   const url = `${Api_Url}/${id}`;
 
-  return this.http.delete<AddItem>(url, httpOptions)(
+  return this._http.delete(`${Api_Url}/item/${id}`),{ headers:this.setHeaders() }).subscribe((user: User) => { this.userInfo.next(user); });
     tap(_ => console.log(`deleted AddItem id=${id}`)),
     catchError(this.handleError<AddItem>('deleteAddItem'))
   );
 }
 
+}
 
-
+private setHeaders(): HttpHeaders {
+  return new HttpHeaders().set('Authorization', localStorage.getItem('auth_token'));
 }

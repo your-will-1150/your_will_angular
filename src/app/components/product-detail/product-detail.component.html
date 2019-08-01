@@ -1,6 +1,7 @@
 <form action="/action_page.php" [formGroup]="_productdetailForm" (ngSubmit)="onSubmit()"> 
   <section class="customer-name">
     <h5>Username</h5>
+    <p *ngIf='user.id == ' .> </p>
     <input type="text" placeholder="Will pre-populate from profile" formControlName="sellername">
   </section>
   <div class="container">
@@ -61,9 +62,9 @@
         </ul>
       </section>
 
-          <button mat-raised-button class="nav-btn" color="primary" type="submit">Submit</button>
-          <button mat-raised-button class="nav-btn" color="primary" type="submit" ng-click="reset">Reset</button>
-
+          <button mat-raised-button class="nav-btn" color="primary" type="submit">Update</button>
+          
+</form>
 
 
 <!-- Form Data -->
