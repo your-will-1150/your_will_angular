@@ -17,9 +17,10 @@ import { ProfileOtherComponent } from './components/profile-other/profile-other.
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AuthService } from './services/auth.service';
 import { AdminComponent } from './components/admin/admin.component';
+import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { ProductService } from './services/product.service';
 
 const routes = [
   { path: 'admin', component: AdminComponent },
@@ -60,6 +61,7 @@ const routes = [
   providers: [
     AuthService,
     UserService,
+    ProductService,
   ],
   bootstrap: [AppComponent]
 })
