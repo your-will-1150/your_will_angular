@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
 
-const Api_Url = "http://yourwill-dev.us-east-1.elasticbeanstalk.com";
+const Api_Url = "https://yourwillflask-api.herokuapp.com/";
 
 @Injectable({
   providedIn: 'root'
