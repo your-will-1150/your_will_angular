@@ -7,7 +7,7 @@ import { Subject, Observable } from 'rxjs';
 import { User } from '../models/User';
 import { Router } from '@angular/router';
 
-const Api_Url = "http://yourwill-dev.us-east-1.elasticbeanstalk.com";
+const Api_Url = "https://yourwillflask-api.herokuapp.com/";
 
 @Injectable({
   providedIn: 'root'
