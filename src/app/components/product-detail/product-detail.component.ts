@@ -10,7 +10,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 export class ProductDetailComponent implements OnInit {
 
    
-  private _productdetailForm: FormGroup;
+  public _productdetailForm: FormGroup;
 
 constructor(private fb: FormBuilder) {
   this.createSellerForm();
