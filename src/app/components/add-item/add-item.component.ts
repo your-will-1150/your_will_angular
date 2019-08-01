@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class AddItemComponent implements OnInit {
 
 
-  private _productdetailForm: FormGroup;
+  public _productdetailForm: FormGroup;
 
   constructor(private fb: FormBuilder, private _service: AuthService) { 
     this.createSellerForm();

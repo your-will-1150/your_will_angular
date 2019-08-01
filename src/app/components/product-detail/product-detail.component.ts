@@ -11,7 +11,7 @@ import { Product } from '../../getProduct/add-item.service';
 export class ProductDetailComponent implements OnInit {
 
    
-  private _productdetailForm: FormGroup;
+  public _productdetailForm: FormGroup;
 
 constructor(private fb: FormBuilder) {
   this.createSellerForm();
