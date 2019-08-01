@@ -41,7 +41,7 @@ export class AddItemComponent implements OnInit {
   onSubmit() {
     if (this._productdetailForm.value) {
       console.log(this._productdetailForm.value);
-      this._service.add_item(this._productdetailForm.value);
+      this._service.login(this._productdetailForm.value);
     }
   
 

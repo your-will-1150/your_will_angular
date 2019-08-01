@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Product } from '../../getProduct/add-item.service';
+import { ItemService } from 'src/app/services/additem.service';
 
 
 @Component({
@@ -11,13 +12,16 @@ import { Product } from '../../getProduct/add-item.service';
 export class ProductDetailComponent implements OnInit {
 
    
-  public _productdetailForm: FormGroup;
+  public _UpdateproductdetailForm: FormGroup;
+  
 
 constructor(private fb: FormBuilder) {
   this.createSellerForm();
   
 
 }
+
+constructor(pr
  
 
   ngOnInit() {
@@ -25,7 +29,7 @@ constructor(private fb: FormBuilder) {
   }
 
 createSellerForm() {
-  this._productdetailForm = this.fb.group({
+  this._UpdateproductdetailForm = this.fb.group({
     sellername: new FormControl,
     who: new FormControl,
     what: new FormControl,
@@ -38,8 +42,13 @@ createSellerForm() {
 }
 
 onSubmit() {
-  if (this._productdetailForm.valid) {
-    console.log("Form Submitted!");
+  if (this._UpdateproductdetailForm.value) {
+    console.log(this._UpdateproductdetailForm.value);
+    this._service.checkAuthenticatio(this._UpdateproductdetailForm.value);
+
+  onDelete() {
+    this.additemservice.deleteProduct (id:Product )('Product Deleted!'))
+    }   
   }
 
 
@@ -48,7 +57,7 @@ onSubmit() {
 
 
 // submitproductdetailForm() {
-//   console.log(this._productdetailForm.value);
+//   console.log(this._UpdateproductdetailForm.value);
 // }
 // buildProductDetailForm() {
 //    this.productdetailForm = this.formBuilder.group({

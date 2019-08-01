@@ -15,6 +15,8 @@ import { Observable } from 'rxjs';
 import { ProductDetailComponent } from '../components/product-detail/product-detail.component';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +39,7 @@ getProduct() {
 }
 
 addProduct (id:Product) {
-  return this._http.post(`${Api_Url}/item/`, id, { headers: this.getHeaders()});
+  return this._http.post(`${Api_Url}/item/`, id, { headers: this.setHeaders()});
   
   
 }
@@ -50,14 +52,11 @@ updateProduct (id:Product) {
 deleteProduct (id:Product ) {
   const url = `${Api_Url}/${id}`;
 
-  return this._http.delete(`${Api_Url}/item/${id}`),{ headers:this.setHeaders() }).subscribe((user: User) => { this.userInfo.next(user); });
-    tap(_ => console.log(`deleted AddItem id=${id}`)),
-    catchError(this.handleError<AddItem>('deleteAddItem'))
-  );
+  return this._http.delete(`${Api_Url}/item/${id}`),{ headers:this.setHeaders()};
 }
 
-}
 
 private setHeaders(): HttpHeaders {
   return new HttpHeaders().set('Authorization', localStorage.getItem('auth_token'));
+}
 }
