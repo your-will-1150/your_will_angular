@@ -13,8 +13,8 @@ export class ProductService {
   constructor(private _http: HttpClient) { }
 
   createItem(itemData: Item) {
-    return this._http.post(`${Api_Url}/item`, itemData);
-  };
+    return this._http.post(`${Api_Url}/item/`, itemData, { headers: this.getHeaders() });
+  };  
   
   readItem() {
     return this._http.get(`${Api_Url}/item`, { headers: this.getHeaders() });

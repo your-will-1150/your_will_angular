@@ -4,5 +4,4 @@ export interface Item {
     price: number;
     gender: string;
     category: string;
-    listed: boolean;
 }
