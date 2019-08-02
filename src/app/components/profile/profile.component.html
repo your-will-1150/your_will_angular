@@ -41,9 +41,9 @@
     <div class="card">
         <div *ngIf="user" class="card-header">
             <h4>Update Account Info</h4>
-            <h3>Email: {{ user.email }}</h3>
-            <h3>Username: {{ user.username }}</h3>
-            <h3>Registered On: {{ user.registered_on | date }}</h3>
+            <h5>Email: {{ user.email }}</h5>
+            <h5>Username: {{ user.username }}</h5>
+            <h5>Registered On: {{ user.registered_on | date }}</h5>
         </div>
         <div *ngIf="updateForm">
             <form class="card-body" (ngSubmit)="onSubmit()" [formGroup]="updateForm">
@@ -75,3 +75,4 @@
     </div>
 </div>
 <button class="center-horizontal" (click)="onDelete()">Delete User</button>
+<button class="link" routerLink="/add-item">Add Item</button>

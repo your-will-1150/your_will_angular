@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject } from 'rxjs';
 import { Item } from '../models/Item';
 
 // const Api_Url = "https://yourwillflask-api.herokuapp.com";
@@ -10,6 +11,8 @@ const Api_Url = "http://localhost:5000";
 })
 export class ProductService {
 
+  public products = new Subject<Item[]>();
+
   constructor(private _http: HttpClient) { }
 
   createItem(itemData: Item) {
@@ -17,8 +20,14 @@ export class ProductService {
   };  
   
   readItem() {
-    return this._http.get(`${Api_Url}/item`, { headers: this.getHeaders() });
+    this._http.get(`${Api_Url}/item/`, { headers: this.getHeaders() }).subscribe( (items : Item[]) => {
+      this.products.next(items);
+    })
   }
+
+  // readItemDetail(id: string) {
+  //   return this._http.get(`${Api_Url}/item${id}`, { headers: this.getHeaders() });
+  // }
 
   updateItem(item: Item) {
     return this._http.put<Item>(`${Api_Url}/item`, item, { headers: this.getHeaders() });

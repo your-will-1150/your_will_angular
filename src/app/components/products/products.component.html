@@ -1,1 +1,14 @@
-<p>products works!</p>
+<div class="center-horizontal">
+    <h1>Products</h1>
+    <div *ngIf="items">
+        <div class="card" *ngFor="let item of items;">
+            <span>
+                <h4 class="card-header">Item: {{ item.title }}</h4>
+                <div class="card-body">
+                    <h5>Gender: {{ item.gender }}</h5>
+                    <h5>Category: {{ item.category }}</h5>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
