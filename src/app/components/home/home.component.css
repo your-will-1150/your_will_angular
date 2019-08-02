@@ -1,0 +1,22 @@
+#home {
+    background: url("../../../assets/bonding-daylight-friends-1645634.jpg");
+    width:100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    
+}
+
+#transparentbox{
+    position:relative;
+    top: 0;
+    left: 0;
+    height:100vh;
+    width:100%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: 0;
+
+}
+    

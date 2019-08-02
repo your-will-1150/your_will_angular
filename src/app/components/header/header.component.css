@@ -1,8 +1,9 @@
-header {
+#heading {
     height: 92px;
     width: 100%;
     background-color: lightgrey;
     padding: 15px;
+    z-index: 1;
 }
 
 .column {
@@ -54,3 +55,7 @@ header {
     float: right;
     font-size: 20px;
 }
+
+/* body {
+    background: url("../../../assets/adults-business-deal-client-1496184.jpg");
+} */
