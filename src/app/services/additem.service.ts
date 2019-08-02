@@ -6,8 +6,6 @@ import { LoginUser } from '../models/LoginUser';
 import { Token } from '../models/Token';
 import { User } from '../models/User';
 
-import ( )
-
 const Api_Url = "http://yourwill-dev.us-east-1.elasticbeanstalk.com";
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';

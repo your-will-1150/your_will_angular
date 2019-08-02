@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProductService } from 'src/app/services/product.service';
+import { User } from 'src/app/models/User';
+
 
 @Component({
   selector: 'app-add-item',
@@ -9,43 +12,39 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AddItemComponent implements OnInit {
 
-
-  public _productdetailForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private _service: AuthService) { 
-    this.createSellerForm();
-
-
-
-
-  }
-
-
-  ngOnInit() {
-
-  }
-
-  createSellerForm() {
-    this._productdetailForm = this.fb.group({
-      sellername: new FormControl,
-      who: new FormControl,
-      what: new FormControl,
-      productname: new FormControl,
-      productdesc: new FormControl,
-      productvalue: new FormControl
-      
+  private _subscription;
+  private _isLoggedIn: boolean;
+  private _isLoggedInSubscription;
+  
+  user: User;
+  addItemForm: FormGroup;
+  
+  constructor(private _form: FormBuilder, private _service: AuthService, private _productService: ProductService) { 
+    this._subscription = this._service.userInfo.subscribe( (value) => {
+      this.user = value;
     });
-  
+    this._isLoggedInSubscription = this._service.isLoggedIn.subscribe( (value) => {
+      this._isLoggedIn = value;
+    });
+    this._service.checkAuthentication();
+    this.createForm();
   }
-  
+
+  ngOnInit() {}
+
+  createForm() {
+    this.addItemForm = this._form.group({
+      title: new FormControl,
+      content: new FormControl,
+      price: new FormControl,
+      gender: new FormControl,
+      category: new FormControl,
+      listed: new FormControl,
+    })
+  }
+
   onSubmit() {
-    if (this._productdetailForm.value) {
-      console.log(this._productdetailForm.value);
-      this._service.login(this._productdetailForm.value);
-    }
-  
-
-
+    console.log(this.addItemForm.value);
+    this._productService.createItem(this.addItemForm.value).subscribe( () => console.log('Item Added!'))
   }
-
-  }
+}

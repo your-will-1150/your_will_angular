@@ -3,7 +3,7 @@
         <h1>Sign Up</h1>
         <h4>Create a new account</h4>
     </div>
-    <form class="card-body" (ngSubmit)="onSubmit()" [formGroup]="_signUpForm">
+    <form class="card-body" (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
         <div>
             <div>
                 <input placeholder="Username" formControlName="username" type="text" required/>

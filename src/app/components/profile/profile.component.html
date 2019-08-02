@@ -57,11 +57,11 @@
             </form>
         </div>
     </div>
-    <div class="card center-horizontal">
+    <div *ngIf="updatePasswordForm" class="card center-horizontal">
         <div class="card-header">
             <h4>Change Password</h4>
         </div>
-        <div *ngIf="updatePasswordForm">
+        <div>
             <form class="card-body" (ngSubmit)="onSubmitPassword()" [formGroup]="updatePasswordForm">
                 <div>
                     <input placeholder="Password" formControlName="password" type="password" required/>
@@ -75,5 +75,3 @@
     </div>
 </div>
 <button class="center-horizontal" (click)="onDelete()">Delete User</button>
-    
-    

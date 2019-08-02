@@ -70,4 +70,5 @@ export class ProfileComponent implements OnInit {
   onDelete() {
     this._userService.deleteMe().subscribe( () => console.log('User Deleted!'))
   }
+
 }
