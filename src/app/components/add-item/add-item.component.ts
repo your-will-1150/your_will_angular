@@ -39,6 +39,7 @@ export class AddItemComponent implements OnInit {
       price: new FormControl,
       gender: new FormControl,
       category: new FormControl,
+      listed: new FormControl,
     })
   }
 
