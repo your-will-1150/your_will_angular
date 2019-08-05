@@ -33,9 +33,9 @@ const routes = [
   // { path: 'product-detail', component: ProductDetailComponent },
   { path: 'products', children: [
     {path: '', component: ProductsComponent},
-    {path: 'detail', component: ProductsDetailComponent},
-    {path: 'update', component: ProductsUpdateComponent},
-    {path: 'delete', component: ProductsDeleteComponent},
+    {path: 'detail/:id', component: ProductsDetailComponent},
+    {path: 'update/:id', component: ProductsUpdateComponent},
+    {path: 'delete/:id', component: ProductsDeleteComponent},
   ]},
   { path: 'order', component: OrderConfirmComponent },
   { path: 'cart', component: CartComponent },

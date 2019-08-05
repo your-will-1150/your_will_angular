@@ -25,16 +25,20 @@ export class ProductService {
     })
   }
 
-  // readItemDetail(id: string) {
-  //   return this._http.get(`${Api_Url}/item${id}`, { headers: this.getHeaders() });
-  // }
-
-  updateItem(item: Item) {
-    return this._http.put<Item>(`${Api_Url}/item`, item, { headers: this.getHeaders() });
+  readItemDetail(item_id: string) {
+    return this._http.get(`${Api_Url}/item/${item_id}`, { headers: this.getHeaders() });
   }
 
-  deleteItem() {
-    return this._http.delete(`${Api_Url}/item`, { headers: this.getHeaders() });
+  updateItem(formData, id: number) {
+    return this._http.put(`${Api_Url}/item/${id}`, formData, { headers: this.getHeaders() });
+  }
+
+  // updateItem(item: Item) {
+  //   return this._http.put(`${Api_Url}/item`, item, { headers: this.getHeaders() });
+  // }
+
+  deleteItem(id: number) {
+    return this._http.delete(`${Api_Url}/item/${id}`, { headers: this.getHeaders() });
   }
 
   private getHeaders(): HttpHeaders {
