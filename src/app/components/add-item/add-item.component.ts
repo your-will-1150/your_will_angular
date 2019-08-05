@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
 import { User } from 'src/app/models/User';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class AddItemComponent implements OnInit {
   user: User;
   addItemForm: FormGroup;
   
-  constructor(private _form: FormBuilder, private _service: AuthService, private _productService: ProductService) { 
+  constructor(private _form: FormBuilder, private _service: AuthService, private _productService: ProductService, private _router: Router) { 
     this._subscription = this._service.userInfo.subscribe( (value) => {
       this.user = value;
     });
@@ -39,12 +40,13 @@ export class AddItemComponent implements OnInit {
       price: new FormControl,
       gender: new FormControl,
       category: new FormControl,
-      listed: new FormControl,
+      // listed: new FormControl,
     })
   }
 
   onSubmit() {
     console.log(this.addItemForm.value);
-    this._productService.createItem(this.addItemForm.value).subscribe( () => console.log('Item Added!'))
+    this._productService.createItem(this.addItemForm.value).subscribe( () => console.log('Item Added!'));
+    // this._router.navigate(['/products/detail'])
   }
 }
