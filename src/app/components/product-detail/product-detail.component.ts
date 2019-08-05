@@ -1,3 +1,5 @@
+// Depricated: DO NOT USE
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
