@@ -1,9 +1,9 @@
-#heading {
-    height: 92px;
+header {
+    height: 110px;
     width: 100%;
     background-color: lightgrey;
     padding: 15px;
-    z-index: 1;
+    z-index: 99;
 }
 
 .column {
