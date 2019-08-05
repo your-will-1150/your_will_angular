@@ -33,10 +33,6 @@ export class ProductService {
     return this._http.put(`${Api_Url}/item/${id}`, formData, { headers: this.getHeaders() });
   }
 
-  // updateItem(item: Item) {
-  //   return this._http.put(`${Api_Url}/item`, item, { headers: this.getHeaders() });
-  // }
-
   deleteItem(id: number) {
     return this._http.delete(`${Api_Url}/item/${id}`, { headers: this.getHeaders() });
   }
