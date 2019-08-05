@@ -8,6 +8,6 @@ line-height: 1.428571429;
 color: #999;
 } */
 
-.center-horizontal {
-    margin: auto;
+.link {
+    float: right;
 }
