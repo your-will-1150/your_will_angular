@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   private _isLoggedInSubscription;
   public items : Item[];
   // private _itemSub : Observable<any>;
-  private _itemSub;
+  private _itemSub
   
   user: User;
 
