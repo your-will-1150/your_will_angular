@@ -12,7 +12,6 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderConfirmComponent } from './components/order-confirm/order-confirm.component';
 import { ProductsComponent } from './components/products/products.component';
-// import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProfileOtherComponent } from './components/profile-other/profile-other.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
@@ -30,7 +29,6 @@ const routes = [
   { path: 'add-item', component: AddItemComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile-other', component: ProfileOtherComponent },
-  // { path: 'product-detail', component: ProductDetailComponent },
   { path: 'products', children: [
     {path: '', component: ProductsComponent},
     {path: 'detail/:id', component: ProductsDetailComponent},
@@ -52,7 +50,6 @@ const routes = [
     CartComponent,
     OrderConfirmComponent,
     ProductsComponent,
-    // ProductDetailComponent,
     ProfileOtherComponent,
     ProfileComponent,
     AddItemComponent,
