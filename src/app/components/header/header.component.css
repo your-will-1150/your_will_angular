@@ -1,8 +1,9 @@
 header {
-    height: 92px;
+    height: 110px;
     width: 100%;
     background-color: lightgrey;
     padding: 15px;
+    z-index: 99;
 }
 
 .column {
@@ -16,7 +17,7 @@ header {
 }
 
 .logo a {
-    color: white;
+    color: rgb(72, 59, 247);
     transition-duration: 1.9s;
 }
 
@@ -54,3 +55,7 @@ header {
     float: right;
     font-size: 20px;
 }
+
+/* body {
+    background: url("../../../assets/adults-business-deal-client-1496184.jpg");
+} */

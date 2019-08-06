@@ -1,5 +1,13 @@
+
+
+
+
 <div class="center-horizontal">
-    <h1>Products</h1>
+        
+                        
+                        <h1 style="text-align: center">Items for Sale</h1>
+                      
+    
     <div *ngIf="items">
         <div class="card" *ngFor="let item of items;">
             <span>
@@ -13,3 +21,25 @@
         </div>
     </div>
 </div>
+
+<style>
+    input, select {
+        width: 400px;
+        border: 1px solid #000;
+        padding: 0;
+        margin: 0;
+        height: 35px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    input {
+        text-indent: 4px;
+    }
+    :-ms-input-placeholder{
+        color:blue;
+    }
+</style>
+
+    

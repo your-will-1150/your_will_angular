@@ -29,3 +29,38 @@ input {
 .center-horizontal {
     margin: auto;
 }
+
+.all {
+    background: url("assets/white-space-4116007_1920.jpg");
+    width:100%;
+    height: 85vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    
+}
+
+.jean {
+    position:absolute; 
+    top:375px; 
+    left:250px;
+    border-block-color: blue;
+    -webkit-transform: rotate(20deg); /* Safari 3-8 */
+  transform: rotate(-08deg);
+
+
+}
+
+.page{
+    color: white;
+
+
+    
+}
+
+.aligncenter{
+    text-align: center;
+
+}
+
