@@ -54,7 +54,7 @@ export class ProductsUpdateComponent implements OnInit {
     })
   }
 
-  onSubmit(formData) {
+  onSubmit() {
     // const updateItem: Item = {
     //   title: form.value.title,
     //   content: form.value.content,
