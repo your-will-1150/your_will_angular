@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
 
-// const Api_Url = "https://yourwillflask-api.herokuapp.com";
-// const Api_Url = "http://localhost:5000";
 const Api_Url = "https://yourwill2.herokuapp.com/";
 
 @Injectable({
