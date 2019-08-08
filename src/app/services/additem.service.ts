@@ -6,7 +6,8 @@ import { LoginUser } from '../models/LoginUser';
 import { Token } from '../models/Token';
 import { User } from '../models/User';
 
-const Api_Url = "http://yourwill-dev.us-east-1.elasticbeanstalk.com";
+const Api_Url = "https://yourwill2.herokuapp.com/";
+
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
