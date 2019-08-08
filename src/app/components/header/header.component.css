@@ -28,7 +28,7 @@ header {
 
 .dropdown {
     float: right;
-    z-index: 9999999; 
+    overflow: hidden;
 }
 
 .navbtn {
