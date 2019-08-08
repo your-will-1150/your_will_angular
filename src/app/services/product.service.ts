@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Item } from '../models/Item';
 
-// const Api_Url = "https://yourwillflask-api.herokuapp.com";
 const Api_Url = "https://yourwill2.herokuapp.com/";
 
 @Injectable({

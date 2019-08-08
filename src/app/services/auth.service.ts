@@ -7,7 +7,6 @@ import { Subject, Observable } from 'rxjs';
 import { User } from '../models/User';
 import { Router } from '@angular/router';
 
-// const Api_Url = "https://yourwillflask-api.herokuapp.com";
 const Api_Url = "https://yourwill2.herokuapp.com/";
 
 @Injectable({
